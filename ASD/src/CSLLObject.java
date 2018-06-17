@@ -1,0 +1,157 @@
+
+class NodeCSLL2 {
+
+    Mahasiswa data;
+    NodeCSLL2 next;
+}
+
+class Mahasiswa1 {
+
+    String nim;
+    String nama;
+    double ipk;
+
+    public Mahasiswa1(String nama, String nim, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = ipk;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public double getIpk() {
+        return ipk;
+    }
+}
+
+public class CSLLObject {
+
+    private NodeCSLL2 pAwal, pAkhir;
+    private int counter;
+
+    public CSLLObject() {
+        pAwal = null;
+        pAkhir = null;
+        counter = -1;
+    }
+
+    public void SisipDataDiAwal(Mahasiswa data) {
+        NodeCSLL2 pBaru = new NodeCSLL2();
+        pBaru.data = data;
+        pBaru.next = null;
+        if (pAwal == null) {
+            pAwal = pBaru;
+            pAkhir = pBaru;
+            pBaru.next = pAwal;
+            counter = 0;
+        } else {
+            pBaru.next = pAwal;
+            pAwal = pBaru;
+            pAkhir.next = pAwal;
+            counter++;
+        }
+    }
+
+    public void hapusData(Mahasiswa dtHapus) {
+        if (pAwal != null) {
+            NodeCSLL2 pSbl, pKini, pHapus;
+            pSbl = null;
+            pKini = pAwal;
+            boolean ketemu = false;
+            int i = -1;
+            if (pAwal != null) {
+                i = 0;
+            }
+            while (!ketemu && (i <= counter) && (i != -1)) {
+                if (pKini.data.equals(dtHapus)) {
+                    ketemu = true;
+                } else {
+                    pSbl = pKini;
+                    pKini = pKini.next;
+                }
+                i++;
+            }
+            if (ketemu) {
+                if (pSbl == null) {
+                    pHapus = pAwal;
+                    pHapus = null;
+                } else {
+                    pSbl.next = pKini.next;
+                    pHapus = pKini;
+                    pHapus = null;
+                }
+                this.counter--;
+            }
+        }
+    }
+
+    public Object hapusSatuDataDiAkhir() {
+        NodeCSLL2 pKini = pAwal, pHapus;
+        while (pKini.next != pAkhir) {
+            pKini = pKini.next;
+        }
+        pHapus = pKini.next;
+        pHapus = null;
+        pKini.next = pAwal;
+        this.counter--;
+        return pKini;
+    }
+
+    public void cetak(String Komentar) {
+        System.out.println(Komentar);
+        NodeCSLL2 pCetak;
+        pCetak = pAwal;
+        int i = -1;
+        while ((i < counter)) {
+            System.out.print("|" + pCetak.data.getNim() + "|" + pCetak.data.getNama() + "|" + pCetak.data.getIpk() + "| -> ");
+            pCetak = pCetak.next;
+            i++;
+        }
+        System.out.println();
+    }
+
+    public void cetakIpk3() {
+        System.out.println("IPK diatas 3.0");
+        NodeCSLL2 pCetak;
+        pCetak = pAwal;
+        int i = -1;
+        while ((i < counter)) {
+            if (pCetak.data.getIpk() > 3.0) {
+                System.out.print("|" + pCetak.data.getNim() + "|" + pCetak.data.getNama() + "|" + pCetak.data.getIpk() + "| -> ");
+            }
+            pCetak = pCetak.next;
+            i++;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        CircularSingleLinkedListObject csll = new CircularSingleLinkedListObject();
+        Mahasiswa M1 = new Mahasiswa("Suarez", "123", 3.3);
+        Mahasiswa M2 = new Mahasiswa("Alba", "132", 2.5);
+        Mahasiswa M3 = new Mahasiswa("Neymar", "213", 3.6);
+        Mahasiswa M4 = new Mahasiswa("Ter Stegen", "231", 2.75);
+        Mahasiswa M5 = new Mahasiswa("Messi", "312", 4.0);
+        Mahasiswa M6 = new Mahasiswa("Umtiti", "321", 2.1);
+        csll.SisipDataDiAwal(M6);
+        csll.SisipDataDiAwal(M5);
+        csll.SisipDataDiAwal(M4);
+        csll.SisipDataDiAwal(M3);
+        csll.SisipDataDiAwal(M2);
+        csll.SisipDataDiAwal(M1);
+        csll.cetak("csll Asal");
+        csll.cetakIpk3();
+        csll.hapusData(M2);
+        csll.cetak("csll stl M2(Alba) di hapus");
+        csll.hapusData(M4);
+        csll.cetak("csll stl M4(Ter stegen) di hapus");
+        csll.hapusSatuDataDiAkhir();
+        csll.cetak("csll stl data akhir dihapus");
+    }
+}

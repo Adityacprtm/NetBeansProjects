@@ -1,0 +1,2 @@
+chapter13.NewPanel
+chapter13.TestPaintComponent
