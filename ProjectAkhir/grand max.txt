@@ -1,0 +1,14 @@
+grand max
+merah
+N 1277 AX
+250000
+
+grand max
+putih
+N 3177 PO
+250000
+
+grand max
+silver
+N 4577 AA
+250000

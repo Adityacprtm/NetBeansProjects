@@ -1,0 +1,14 @@
+avanza
+merah
+N 1234 AZ
+200000
+
+avanza
+putih
+N 3122 PL
+200000
+
+avanza
+silver
+N 4544 AD
+200000

@@ -1,0 +1,14 @@
+ez pass
+merah
+N 1934 AZ
+175000
+
+ez pass
+putih
+N 3922 PZ
+175000
+
+ez pass
+silver
+N 4944 KD
+175000

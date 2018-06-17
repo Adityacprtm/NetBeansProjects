@@ -1,0 +1,14 @@
+kijang
+merah
+N 1243 YG
+150000
+
+kijang
+putih
+N 4122 IL
+150000
+
+kijang
+silver
+N 5544 AD
+150000

@@ -1,0 +1,14 @@
+innova
+merah
+N 1934 AY
+200000
+
+innova
+putih
+N 3928 PY
+200000
+
+innova
+silver
+N 4988 KY
+200000

@@ -1,0 +1,14 @@
+elf
+merah
+N 4321 AS
+250000
+
+elf
+putih
+N 3222 AL
+250000
+
+elf
+silver
+N 8368 XD
+250000
